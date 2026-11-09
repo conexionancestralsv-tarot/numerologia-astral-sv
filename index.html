@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#130b23">
-  <meta name="description" content="Explora tu número del día, tu camino de vida y combinaciones lúdicas con Numerología Astral de Conexión Ancestral SV.">
+  <meta name="description" content="Explora tu frecuencia personal, tu camino de vida y tus códigos numéricos del día con Conexión Ancestral SV.">
   <title>Numerología Astral | Conexión Ancestral SV</title>
   <style>
     :root {
@@ -58,8 +58,7 @@
     h2 { font-size: clamp(1.35rem, 4vw, 1.7rem); font-weight: normal; color: var(--gold); }
     h2, p { margin: 0; }
     p { line-height: 1.55; }
-    .intro p + p, .panel p, .panel form { margin-top: 10px; }
-    .tools { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .intro p + p, .panel p { margin-top: 10px; }
     .panel {
       min-width: 0;
       padding: clamp(18px, 4vw, 25px);
@@ -68,55 +67,76 @@
       background: linear-gradient(145deg, #301b46f5, #1b112cf2);
       box-shadow: 0 9px 25px #0b041e66;
     }
-    .wide { grid-column: 1 / -1; }
     .muted { color: var(--muted); }
     .small { font-size: .875rem; }
-    .number {
-      display: inline-grid;
-      place-items: center;
-      min-width: 2em;
-      height: 2em;
-      border: 1px solid var(--gold);
-      border-radius: 50%;
-      background: #503266;
-      color: var(--gold);
-      font-size: 1.75rem;
-      font-variant-numeric: tabular-nums;
-      box-shadow: 0 0 22px #ac72e041;
+    .fields, .metrics {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
-    #day-number, #life-number { margin-top: 12px; }
-    .numbers {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
-    .numbers:not(:empty) { margin-top: 16px; }
-    label {
+    .fields { margin: 18px 0; text-align: left; }
+    .mode-field { grid-column: span 2; }
+    label:not([hidden]) {
       display: block;
       margin-bottom: 7px;
       color: var(--cream);
       font: 600 .85rem/1.4 system-ui, sans-serif;
     }
-    .field { display: grid; gap: 9px; max-width: 270px; margin: 0 auto; }
-    input, button, .contact {
+    input, select, button, .contact {
       min-height: 44px;
       max-width: 100%;
-      padding: 10px 16px;
+      padding: 10px 14px;
       font: 650 .9rem/1.4 system-ui, sans-serif;
       border: 1px solid var(--border);
       border-radius: 12px;
     }
-    input { width: 100%; min-width: 0; color: var(--cream); background: #201330; }
+    input, select { width: 100%; min-width: 0; color: var(--cream); background: #201330; }
     button, .contact { background: var(--gold); color: #2a1834; cursor: pointer; }
     button:hover, .contact:hover { background: #ffebb9; }
     :focus-visible { outline: 3px solid #ffeba8; outline-offset: 4px; }
-    #draw { margin-top: 14px; }
     [role="alert"]:empty { display: none; }
     [role="alert"] { color: #ffc4bc; }
+    .results { margin-top: 24px; }
+    .numbers {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      justify-items: center;
+      gap: 12px;
+      max-width: 640px;
+      margin: 16px auto;
+      padding: 0;
+      list-style: none;
+    }
+    .numbers.single { grid-template-columns: 1fr; }
+    .numbers.pair { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 220px; }
+    .numbers.trio { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 330px; }
+    .number {
+      display: grid;
+      place-content: center;
+      width: min(100%, 90px);
+      aspect-ratio: 1;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      background: radial-gradient(ellipse at top, #775098, #33204c);
+      color: var(--gold);
+      font-size: clamp(1.4rem, 4vw, 1.95rem);
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      box-shadow: 0 0 22px #ac72e041;
+    }
+    .number small { font: 600 .69rem/1.4 system-ui, sans-serif; color: var(--cream); }
+    .secondary { background: #302044; color: var(--cream); }
+    .secondary:hover { background: #4e3467; }
+    #copy-note { margin: 8px 0 0; }
+    #manual-copy { width: min(100%, 300px); margin-top: 8px; text-align: center; }
+    .analysis { margin-top: 20px; text-align: left; overflow-wrap: anywhere; }
+    .analysis h2 { text-align: center; }
+    .metrics { margin: 16px 0; text-align: center; }
+    .metrics > div { border: 1px solid var(--border); border-radius: 12px; padding: 10px 7px; background: #48305d; }
+    .metrics dt { font: 700 .73rem/1.35 system-ui, sans-serif; text-transform: uppercase; }
+    .metrics dd { margin: 6px 0 0; color: var(--gold); font-size: 1.25rem; font-weight: 700; }
+    details { margin-top: 12px; }
+    summary { cursor: pointer; }
     .consult { margin-top: 26px; }
     .contact { display: inline-block; margin-top: 10px; text-decoration: none; }
     .footer-note {
@@ -126,7 +146,15 @@
       font-size: .825rem;
     }
     @media (max-width: 620px) {
-      .tools { grid-template-columns: minmax(0, 1fr); }
+      .fields { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .mode-field { grid-column: auto; }
+      .numbers.six { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 330px; }
+    }
+    @media (max-width: 420px) {
+      .fields { grid-template-columns: minmax(0, 1fr); }
+      .metrics { gap: 6px; }
+      .metrics dt { font-size: .65rem; }
+      .metrics dd { font-size: 1.05rem; }
     }
   </style>
 </head>
@@ -140,49 +168,70 @@
     <main>
       <div class="intro">
         <p class="eyebrow">✦ Explora tus números ✦</p>
-        <p>Descubre el simbolismo de la fecha de hoy, explora tu camino de vida o genera una combinación por curiosidad.</p>
+        <p>Descubre cómo se combinan tu nombre y tu fecha de nacimiento en una lectura simbólica de numerología.</p>
+        <p id="day-summary" class="muted small"></p>
       </div>
 
-      <noscript><p class="panel">Activa JavaScript en tu navegador para usar las calculadoras y generar números.</p></noscript>
+      <noscript><p class="panel">Activa JavaScript en tu navegador para calcular tus números.</p></noscript>
 
-      <div class="tools">
-        <section class="panel" aria-labelledby="day-title">
-          <h2 id="day-title">Número del día</h2>
-          <p id="day-date" class="muted small"></p>
-          <output id="day-number" class="number" aria-label="Número del día">—</output>
-          <p id="day-message" class="muted"></p>
-        </section>
-
-        <section class="panel" aria-labelledby="life-title">
-          <h2 id="life-title">Camino de vida</h2>
-          <p class="muted">Sumamos los dígitos de tu fecha de nacimiento hasta obtener un número del 1 al 9.</p>
-          <form id="life-form">
-            <label for="birth-date">Fecha de nacimiento</label>
-            <div class="field">
-              <input id="birth-date" type="date" min="0001-01-01" required aria-describedby="birth-note">
-              <button type="submit">Calcular mi número</button>
+      <section class="panel" aria-labelledby="form-title">
+        <h2 id="form-title">Consulta numerológica</h2>
+        <form id="reading-form" novalidate>
+          <div class="fields">
+            <div>
+              <label for="first-name">Primer nombre</label>
+              <input id="first-name" autocomplete="given-name" maxlength="80" required>
             </div>
-            <p id="birth-note" class="muted small">El cálculo se hace en tu navegador.</p>
-            <p id="life-error" role="alert"></p>
-          </form>
-          <div role="status" aria-atomic="true">
-            <div id="life-result" hidden>
-              <span id="life-number" class="number"></span>
-              <p id="life-message" class="muted"></p>
+            <div>
+              <label for="last-name">Primer apellido</label>
+              <input id="last-name" autocomplete="family-name" maxlength="80" required>
+            </div>
+            <div>
+              <label for="birth-date">Fecha de nacimiento</label>
+              <input id="birth-date" type="date" min="0001-01-01" autocomplete="bday" required>
+            </div>
+            <div class="mode-field">
+              <label for="luck-mode">Modalidad de suerte</label>
+              <select id="luck-mode">
+                <option value="six">Sorteo de 6 números (01–59)</option>
+                <option value="four">Lotería de 4 cifras (0000–9999)</option>
+                <option value="clover">Trébol Fortuna (3 números clave)</option>
+                <option value="daily">Clave Diaria (2 números)</option>
+              </select>
             </div>
           </div>
-        </section>
+          <button id="calculate" type="submit" disabled>✧ Calcular mis números de la suerte</button>
+          <p class="muted small">Tus datos se usan en tu navegador para calcular la lectura.</p>
+        </form>
+      </section>
 
-        <section class="panel wide" aria-labelledby="draw-title">
-          <h2 id="draw-title">Tus números cabalísticos de hoy</h2>
-          <p class="muted">Cada combinación contiene tres números al azar entre 00 y 99.</p>
-          <p id="draw-note" class="muted small">Para entretenimiento. Las combinaciones son aleatorias y las probabilidades de cada sorteo dependen de sus reglas.</p>
-          <button id="draw" type="button" aria-describedby="draw-note">Generar combinación</button>
-          <div role="status" aria-atomic="true">
-            <ul id="draw-result" class="numbers" aria-label="Combinación generada"></ul>
-          </div>
+      <section class="results" id="results" aria-labelledby="codes-title" hidden>
+        <h2 id="codes-title" tabindex="-1">Tus códigos numéricos</h2>
+        <p id="result-mode" class="muted small"></p>
+        <ol id="codes" class="numbers" aria-label="Combinación generada"></ol>
+        <button class="secondary" id="copy" type="button">Copiar combinación de suerte</button>
+        <p id="copy-note" class="small" role="status"></p>
+        <label id="manual-label" for="manual-copy" hidden>Combinación para copiar manualmente</label>
+        <input id="manual-copy" readonly hidden>
+
+        <section class="panel analysis" aria-labelledby="analysis-title">
+          <h2 id="analysis-title">Análisis de tu frecuencia personal</h2>
+          <p id="greeting"></p>
+          <dl class="metrics">
+            <div><dt>Camino de vida</dt><dd id="life-number"></dd></div>
+            <div><dt>Vibración del nombre</dt><dd id="name-number"></dd></div>
+            <div><dt>Día propicio</dt><dd id="symbolic-day"></dd></div>
+          </dl>
+          <p><strong>✦ Elemento místico asociado</strong> <span id="element"></span></p>
+          <p><strong>✦ Mensaje del destino</strong> <span id="destiny"></span></p>
+          <details class="muted small">
+            <summary>Cómo calculamos tu lectura</summary>
+            <p>Reducimos la suma de los dígitos de tu fecha de nacimiento a un número del 1 al 9. Para tu nombre y apellido, asignamos valores del 1 al 9 a las letras de la A a la Z en ciclos y reducimos su suma. La suma armónica combina ambos resultados. El día propicio y el elemento son asociaciones simbólicas del camino de vida.</p>
+            <p>Los códigos combinan tus datos con la fecha de El Salvador y la modalidad elegida. Se mantienen al repetir la misma consulta ese día.</p>
+          </details>
+          <p class="muted small">Lectura simbólica y de entretenimiento. Los códigos no predicen sorteos ni cambian las probabilidades de ganar.</p>
         </section>
-      </div>
+      </section>
 
       <section class="consult" aria-labelledby="consult-title">
         <h2 id="consult-title">¿Quieres explorar tu lectura?</h2>
@@ -199,15 +248,15 @@
   <script>
     const meanings = [
       null,
-      ['Iniciativa', 'Elige un primer paso que puedas dar hoy.', '¿Qué te ayuda a iniciar algo por tu cuenta?'],
-      ['Cooperación', 'Escucha una perspectiva distinta antes de responder.', '¿En qué relaciones te resulta más fácil colaborar?'],
-      ['Creatividad', 'Dale forma a una idea que hayas dejado en pausa.', '¿De qué manera disfrutas expresar lo que llevas dentro?'],
-      ['Orden', 'Resuelve un pendiente pequeño que te quite energía.', '¿Qué hábitos te dan estabilidad cuando todo se mueve?'],
-      ['Cambio', 'Prueba una manera distinta de hacer algo cotidiano.', '¿Qué cambios te han enseñado a confiar en tu capacidad de adaptarte?'],
-      ['Cuidado', 'Reserva un momento para atender una necesidad propia.', '¿Cómo equilibras el cuidado de otros con el tuyo?'],
-      ['Introspección', 'Haz una pausa y escribe una pregunta que quieras explorar.', '¿Qué descubres cuando te permites estar a solas?'],
-      ['Constancia', 'Dedica un momento a algo que quieras sostener a largo plazo.', '¿En qué te gustaría invertir tu esfuerzo de forma constante?'],
-      ['Cierre', 'Reconoce algo aprendido antes de cerrar un pendiente.', '¿Qué te ayuda a agradecer una etapa y dejarla atrás?']
+      ['Iniciativa', 'Elige un primer paso que puedas dar hoy.'],
+      ['Cooperación', 'Escucha una perspectiva distinta antes de responder.'],
+      ['Creatividad', 'Dale forma a una idea que hayas dejado en pausa.'],
+      ['Orden', 'Resuelve un pendiente pequeño que te quite energía.'],
+      ['Cambio', 'Prueba una manera distinta de hacer algo cotidiano.'],
+      ['Cuidado', 'Reserva un momento para atender una necesidad propia.'],
+      ['Introspección', 'Haz una pausa y escribe una pregunta que quieras explorar.'],
+      ['Constancia', 'Dedica un momento a algo que quieras sostener a largo plazo.'],
+      ['Cierre', 'Reconoce algo aprendido antes de cerrar un pendiente.']
     ];
 
     const dayFormatter = new Intl.DateTimeFormat('es-SV', {
@@ -217,65 +266,174 @@
       timeZone: 'America/El_Salvador', year: 'numeric', month: '2-digit', day: '2-digit'
     });
 
+    const modes = {
+      six: { count: 6, min: 1, max: 59, digits: 2, layout: 'six' },
+      four: { count: 1, min: 0, max: 9999, digits: 4, layout: 'single' },
+      clover: { count: 3, min: 0, max: 99, digits: 2, layout: 'trio' },
+      daily: { count: 2, min: 0, max: 99, digits: 2, layout: 'pair' }
+    };
+
+    const associations = [
+      null,
+      ['Domingo', 'Fuego (iniciativa y claridad)'],
+      ['Lunes', 'Agua (escucha y sensibilidad)'],
+      ['Jueves', 'Aire (expresión y creatividad)'],
+      ['Sábado', 'Tierra (orden y estabilidad)'],
+      ['Miércoles', 'Aire (curiosidad y cambio)'],
+      ['Viernes', 'Tierra / Agua (armonía y cuidado)'],
+      ['Lunes', 'Agua (pausa e introspección)'],
+      ['Sábado', 'Tierra (constancia y estructura)'],
+      ['Martes', 'Fuego (transformación y cierre)']
+    ];
+
     const byId = id => document.getElementById(id);
+    const form = byId('reading-form');
+    const firstName = byId('first-name');
+    const lastName = byId('last-name');
     const birthDate = byId('birth-date');
-    const lifeResult = byId('life-result');
-    const lifeError = byId('life-error');
+    const modeSelect = byId('luck-mode');
+    const results = byId('results');
+    const manualCopy = byId('manual-copy');
+    const manualLabel = byId('manual-label');
+    let combination = '';
+
+    function reduceNumber(sum) {
+      return 1 + ((sum - 1) % 9);
+    }
 
     function reduceDate(date) {
       const sum = Array.from(date.replaceAll('-', ''), Number).reduce((total, digit) => total + digit, 0);
-      return 1 + ((sum - 1) % 9);
+      return reduceNumber(sum);
+    }
+
+    function normalizeName(name) {
+      return name.normalize('NFD').replace(/\p{M}/gu, '').toUpperCase().replace(/[^A-Z]/g, '');
+    }
+
+    function isValidName(name, letters) {
+      return Boolean(letters) && /^[\p{L}\p{M} .’'-]+$/u.test(name.trim());
+    }
+
+    function reduceName(letters) {
+      const sum = Array.from(letters, letter => 1 + ((letter.charCodeAt(0) - 65) % 9))
+        .reduce((total, value) => total + value, 0);
+      return reduceNumber(sum);
     }
 
     function updateDay() {
       const now = new Date();
       const parts = Object.fromEntries(isoFormatter.formatToParts(now).map(part => [part.type, part.value]));
       const today = [parts.year, parts.month, parts.day].join('-');
-      if (birthDate.max === today) return;
-      const number = reduceDate(today);
-      const [theme, prompt] = meanings[number];
-      birthDate.max = today;
-      byId('day-date').textContent = dayFormatter.format(now) + ' · El Salvador';
-      byId('day-number').textContent = number;
-      byId('day-message').textContent = theme + '. ' + prompt;
+      if (birthDate.max !== today) {
+        birthDate.max = today;
+        const number = reduceDate(today);
+        byId('day-summary').textContent = 'Número del día en El Salvador · ' + number + ' · ' + meanings[number][0];
+      }
+      return { iso: today, label: dayFormatter.format(now) };
     }
 
-    byId('life-form').addEventListener('submit', event => {
-      event.preventDefault();
-      updateDay();
-      if (!birthDate.validity.valid) {
-        lifeResult.hidden = true;
-        lifeError.textContent = 'Ingresa una fecha válida que no sea posterior a hoy.';
-        return;
-      } 
-      const number = reduceDate(birthDate.value);
-      const [theme, , prompt] = meanings[number];
-      lifeError.textContent = '';
-      byId('life-number').textContent = number;
-      byId('life-message').textContent = theme + '. ' + prompt;
-      lifeResult.hidden = false;
-    });
-
-    birthDate.addEventListener('input', () => {
-      lifeResult.hidden = true;
-      lifeError.textContent = '';
-    });
-
-    byId('draw').addEventListener('click', () => {
-      const numbers = new Set();
-      while (numbers.size < 3) {
-        numbers.add(Math.floor(Math.random() * 100));
+    function generateCodes(key, mode) {
+      // The same consultation date and inputs reproduce the same symbolic combination.
+      let state = 2166136261;
+      for (const character of key) {
+        state = Math.imul(state ^ character.charCodeAt(0), 16777619);
       }
-      const items = Array.from(numbers, number => {
+      const pool = Array.from({ length: mode.max - mode.min + 1 }, (_, index) => mode.min + index);
+      const codes = [];
+      for (let index = 0; index < mode.count; index++) {
+        state = (Math.imul(state, 1664525) + 1013904223) >>> 0;
+        const pick = Math.floor((state / 4294967296) * pool.length);
+        codes.push(pool[pick]);
+        pool[pick] = pool[pool.length - 1];
+        pool.pop();
+      }
+      return codes.sort((a, b) => a - b).map(code => String(code).padStart(mode.digits, '0'));
+    }
+
+    function clearCopyStatus() {
+      byId('copy-note').textContent = '';
+      manualCopy.hidden = true;
+      manualLabel.hidden = true;
+    }
+
+    function invalidateResult() {
+      results.hidden = true;
+      combination = '';
+      clearCopyStatus();
+    }
+
+    form.addEventListener('input', event => {
+      if (event.target === firstName || event.target === lastName) event.target.setCustomValidity('');
+      invalidateResult();
+    });
+    modeSelect.addEventListener('change', invalidateResult);
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const today = updateDay();
+      const given = normalizeName(firstName.value);
+      const family = normalizeName(lastName.value);
+      firstName.setCustomValidity(isValidName(firstName.value, given) ? '' : 'Escribe tu primer nombre usando letras.');
+      lastName.setCustomValidity(isValidName(lastName.value, family) ? '' : 'Escribe tu primer apellido usando letras.');
+      if (!form.reportValidity()) return;
+
+      const life = reduceDate(birthDate.value);
+      const name = reduceName(given + family);
+      const harmony = reduceNumber(life + name);
+      const [day, element] = associations[life];
+      const mode = modes[modeSelect.value];
+      const key = [given, family, birthDate.value, today.iso, modeSelect.value].join('|');
+      const codes = generateCodes(key, mode);
+      combination = codes.join(' · ');
+      const list = byId('codes');
+      list.className = 'numbers ' + mode.layout;
+      list.replaceChildren(...codes.map((code, index) => {
         const item = document.createElement('li');
+        const position = document.createElement('small');
+        position.textContent = 'N.º ' + (index + 1);
+        position.setAttribute('aria-hidden', 'true');
         item.className = 'number';
-        item.textContent = String(number).padStart(2, '0');
+        item.append(code, position);
         return item;
-      });
-      byId('draw-result').replaceChildren(...items);
+      }));
+
+      const displayName = firstName.value.trim().replace(/^\p{L}/u, letter => letter.toLocaleUpperCase('es-SV'));
+      byId('result-mode').textContent = modeSelect.selectedOptions[0].textContent + ' · ' + today.label;
+      byId('greeting').textContent = 'Hola, ' + displayName + '. Tu camino de vida (' + life
+        + ') y la vibración de tu nombre (' + name + ') se reúnen en una suma armónica de ' + harmony
+        + '. Arriba encuentras tus códigos de hoy para la modalidad que elegiste.';
+      byId('life-number').textContent = life;
+      byId('name-number').textContent = name;
+      byId('symbolic-day').textContent = day;
+      byId('element').textContent = '· ' + element;
+      byId('destiny').textContent = '· Tu camino de vida evoca ' + meanings[life][0].toLowerCase()
+        + ' y tu nombre aporta un tema de ' + meanings[name][0].toLowerCase()
+        + '. La frecuencia ' + harmony + ' te deja una invitación. ' + meanings[harmony][1];
+      clearCopyStatus();
+      results.hidden = false;
+      byId('codes-title').focus();
+    });
+
+    byId('copy').addEventListener('click', async () => {
+      const text = combination;
+      if (!text) return;
+      clearCopyStatus();
+      try {
+        await navigator.clipboard.writeText(text);
+        if (combination === text) byId('copy-note').textContent = 'Combinación copiada.';
+      } catch {
+        if (combination !== text) return;
+        byId('copy-note').textContent = 'Puedes copiar los números desde el campo seleccionado.';
+        manualCopy.value = text;
+        manualLabel.hidden = false;
+        manualCopy.hidden = false;
+        manualCopy.focus();
+        manualCopy.select();
+      }
     });
 
     updateDay();
+    byId('calculate').disabled = false;
     setInterval(updateDay, 60_000);
     document.addEventListener('visibilitychange', updateDay);
   </script>
