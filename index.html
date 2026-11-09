@@ -247,7 +247,7 @@
         lifeResult.hidden = true;
         lifeError.textContent = 'Ingresa una fecha válida que no sea posterior a hoy.';
         return;
-      }
+      } 
       const number = reduceDate(birthDate.value);
       const [theme, , prompt] = meanings[number];
       lifeError.textContent = '';
