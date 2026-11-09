@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="es-SV">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#130b23">
+  <meta name="description" content="Explora tu número del día, tu camino de vida y combinaciones lúdicas con Numerología Astral de Conexión Ancestral SV.">
+  <title>Numerología Astral | Conexión Ancestral SV</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --gold: #f5d596;
+      --cream: #fff4e5;
+      --muted: #e4d2eb;
+      --border: #ae8258;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--cream);
+      background: #100a1d;
+      text-align: center;
+    }
+    img { display: block; width: 100%; height: auto; }
+    .site {
+      width: min(100%, 930px);
+      margin: 0 auto;
+      background: #160e28 url("./cosmos.webp") center top / 100% auto repeat-y;
+      box-shadow: 0 0 65px #0009;
+    }
+    .hero { position: relative; }
+    .hero img { border-bottom: 1px solid #926746; }
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+    main {
+      padding: clamp(26px, 5vw, 44px) clamp(14px, 4vw, 36px) 36px;
+      background:
+        linear-gradient(#11092038, #170e29ab),
+        url("./niebla.webp") center bottom / min(100%, 760px) auto no-repeat;
+    }
+    .intro { max-width: 540px; margin: 0 auto 24px; }
+    .eyebrow {
+      color: var(--gold);
+      font: 700 .75rem/1.4 system-ui, sans-serif;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    h2 { font-size: clamp(1.35rem, 4vw, 1.7rem); font-weight: normal; color: var(--gold); }
+    h2, p { margin: 0; }
+    p { line-height: 1.55; }
+    .intro p + p, .panel p, .panel form { margin-top: 10px; }
+    .tools { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .panel {
+      min-width: 0;
+      padding: clamp(18px, 4vw, 25px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: linear-gradient(145deg, #301b46f5, #1b112cf2);
+      box-shadow: 0 9px 25px #0b041e66;
+    }
+    .wide { grid-column: 1 / -1; }
+    .muted { color: var(--muted); }
+    .small { font-size: .875rem; }
+    .number {
+      display: inline-grid;
+      place-items: center;
+      min-width: 2em;
+      height: 2em;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      background: #503266;
+      color: var(--gold);
+      font-size: 1.75rem;
+      font-variant-numeric: tabular-nums;
+      box-shadow: 0 0 22px #ac72e041;
+    }
+    #day-number, #life-number { margin-top: 12px; }
+    .numbers {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    .numbers:not(:empty) { margin-top: 16px; }
+    label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--cream);
+      font: 600 .85rem/1.4 system-ui, sans-serif;
+    }
+    .field { display: grid; gap: 9px; max-width: 270px; margin: 0 auto; }
+    input, button, .contact {
+      min-height: 44px;
+      max-width: 100%;
+      padding: 10px 16px;
+      font: 650 .9rem/1.4 system-ui, sans-serif;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    input { width: 100%; min-width: 0; color: var(--cream); background: #201330; }
+    button, .contact { background: var(--gold); color: #2a1834; cursor: pointer; }
+    button:hover, .contact:hover { background: #ffebb9; }
+    :focus-visible { outline: 3px solid #ffeba8; outline-offset: 4px; }
+    #draw { margin-top: 14px; }
+    [role="alert"]:empty { display: none; }
+    [role="alert"] { color: #ffc4bc; }
+    .consult { margin-top: 26px; }
+    .contact { display: inline-block; margin-top: 10px; text-decoration: none; }
+    .footer-note {
+      padding: 12px 16px;
+      background: #130d20;
+      color: var(--muted);
+      font-size: .825rem;
+    }
+    @media (max-width: 620px) {
+      .tools { grid-template-columns: minmax(0, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <div class="site">
+    <header class="hero">
+      <h1 class="visually-hidden">Numerología Astral</h1>
+      <p class="visually-hidden">Tu guía astral hacia la fortuna.</p>
+      <img src="./cabecera_numerologia.webp" width="1795" height="876" alt="Conexión Ancestral SV" fetchpriority="high">
+    </header>
+    <main>
+      <div class="intro">
+        <p class="eyebrow">✦ Explora tus números ✦</p>
+        <p>Descubre el simbolismo de la fecha de hoy, explora tu camino de vida o genera una combinación por curiosidad.</p>
+      </div>
+
+      <noscript><p class="panel">Activa JavaScript en tu navegador para usar las calculadoras y generar números.</p></noscript>
+
+      <div class="tools">
+        <section class="panel" aria-labelledby="day-title">
+          <h2 id="day-title">Número del día</h2>
+          <p id="day-date" class="muted small"></p>
+          <output id="day-number" class="number" aria-label="Número del día">—</output>
+          <p id="day-message" class="muted"></p>
+        </section>
+
+        <section class="panel" aria-labelledby="life-title">
+          <h2 id="life-title">Camino de vida</h2>
+          <p class="muted">Sumamos los dígitos de tu fecha de nacimiento hasta obtener un número del 1 al 9.</p>
+          <form id="life-form">
+            <label for="birth-date">Fecha de nacimiento</label>
+            <div class="field">
+              <input id="birth-date" type="date" min="0001-01-01" required aria-describedby="birth-note">
+              <button type="submit">Calcular mi número</button>
+            </div>
+            <p id="birth-note" class="muted small">El cálculo se hace en tu navegador.</p>
+            <p id="life-error" role="alert"></p>
+          </form>
+          <div role="status" aria-atomic="true">
+            <div id="life-result" hidden>
+              <span id="life-number" class="number"></span>
+              <p id="life-message" class="muted"></p>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel wide" aria-labelledby="draw-title">
+          <h2 id="draw-title">Tus números cabalísticos de hoy</h2>
+          <p class="muted">Cada combinación contiene tres números al azar entre 00 y 99.</p>
+          <p id="draw-note" class="muted small">Para entretenimiento. Las combinaciones son aleatorias y las probabilidades de cada sorteo dependen de sus reglas.</p>
+          <button id="draw" type="button" aria-describedby="draw-note">Generar combinación</button>
+          <div role="status" aria-atomic="true">
+            <ul id="draw-result" class="numbers" aria-label="Combinación generada"></ul>
+          </div>
+        </section>
+      </div>
+
+      <section class="consult" aria-labelledby="consult-title">
+        <h2 id="consult-title">¿Quieres explorar tu lectura?</h2>
+        <p class="muted">Solicita una consulta personal con Conexión Ancestral SV.</p>
+        <a class="contact" href="https://wa.me/50366782228?text=Hola%2C%20Conexi%C3%B3n%20Ancestral%20SV.%20Vi%20Numerolog%C3%ADa%20Astral%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20una%20consulta%20personal." target="_blank" rel="noopener noreferrer">Consultar por WhatsApp ↗</a>
+      </section>
+    </main>
+    <footer>
+      <img src="./pie_mistico.webp" width="718" height="262" alt="" loading="lazy">
+      <p class="footer-note">© Conexión Ancestral SV · Lecturas simbólicas y entretenimiento</p>
+    </footer>
+  </div>
+
+  <script>
+    const meanings = [
+      null,
+      ['Iniciativa', 'Elige un primer paso que puedas dar hoy.', '¿Qué te ayuda a iniciar algo por tu cuenta?'],
+      ['Cooperación', 'Escucha una perspectiva distinta antes de responder.', '¿En qué relaciones te resulta más fácil colaborar?'],
+      ['Creatividad', 'Dale forma a una idea que hayas dejado en pausa.', '¿De qué manera disfrutas expresar lo que llevas dentro?'],
+      ['Orden', 'Resuelve un pendiente pequeño que te quite energía.', '¿Qué hábitos te dan estabilidad cuando todo se mueve?'],
+      ['Cambio', 'Prueba una manera distinta de hacer algo cotidiano.', '¿Qué cambios te han enseñado a confiar en tu capacidad de adaptarte?'],
+      ['Cuidado', 'Reserva un momento para atender una necesidad propia.', '¿Cómo equilibras el cuidado de otros con el tuyo?'],
+      ['Introspección', 'Haz una pausa y escribe una pregunta que quieras explorar.', '¿Qué descubres cuando te permites estar a solas?'],
+      ['Constancia', 'Dedica un momento a algo que quieras sostener a largo plazo.', '¿En qué te gustaría invertir tu esfuerzo de forma constante?'],
+      ['Cierre', 'Reconoce algo aprendido antes de cerrar un pendiente.', '¿Qué te ayuda a agradecer una etapa y dejarla atrás?']
+    ];
+
+    const dayFormatter = new Intl.DateTimeFormat('es-SV', {
+      timeZone: 'America/El_Salvador', dateStyle: 'long'
+    });
+    const isoFormatter = new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'America/El_Salvador', year: 'numeric', month: '2-digit', day: '2-digit'
+    });
+
+    const byId = id => document.getElementById(id);
+    const birthDate = byId('birth-date');
+    const lifeResult = byId('life-result');
+    const lifeError = byId('life-error');
+
+    function reduceDate(date) {
+      const sum = Array.from(date.replaceAll('-', ''), Number).reduce((total, digit) => total + digit, 0);
+      return 1 + ((sum - 1) % 9);
+    }
+
+    function updateDay() {
+      const now = new Date();
+      const parts = Object.fromEntries(isoFormatter.formatToParts(now).map(part => [part.type, part.value]));
+      const today = [parts.year, parts.month, parts.day].join('-');
+      if (birthDate.max === today) return;
+      const number = reduceDate(today);
+      const [theme, prompt] = meanings[number];
+      birthDate.max = today;
+      byId('day-date').textContent = dayFormatter.format(now) + ' · El Salvador';
+      byId('day-number').textContent = number;
+      byId('day-message').textContent = theme + '. ' + prompt;
+    }
+
+    byId('life-form').addEventListener('submit', event => {
+      event.preventDefault();
+      updateDay();
+      if (!birthDate.validity.valid) {
+        lifeResult.hidden = true;
+        lifeError.textContent = 'Ingresa una fecha válida que no sea posterior a hoy.';
+        return;
+      }
+      const number = reduceDate(birthDate.value);
+      const [theme, , prompt] = meanings[number];
+      lifeError.textContent = '';
+      byId('life-number').textContent = number;
+      byId('life-message').textContent = theme + '. ' + prompt;
+      lifeResult.hidden = false;
+    });
+
+    birthDate.addEventListener('input', () => {
+      lifeResult.hidden = true;
+      lifeError.textContent = '';
+    });
+
+    byId('draw').addEventListener('click', () => {
+      const numbers = new Set();
+      while (numbers.size < 3) {
+        numbers.add(Math.floor(Math.random() * 100));
+      }
+      const items = Array.from(numbers, number => {
+        const item = document.createElement('li');
+        item.className = 'number';
+        item.textContent = String(number).padStart(2, '0');
+        return item;
+      });
+      byId('draw-result').replaceChildren(...items);
+    });
+
+    updateDay();
+    setInterval(updateDay, 60_000);
+    document.addEventListener('visibilitychange', updateDay);
+  </script>
+</body>
+</html>
